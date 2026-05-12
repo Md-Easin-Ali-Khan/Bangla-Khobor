@@ -1,3 +1,4 @@
+import LeftSideBar from "@/components/homepage/news/LeftSideBar";
 
 async function getCategories() {
   const res = await fetch("https://openapi.programming-hero.com/api/news/categories");
@@ -7,20 +8,11 @@ async function getCategories() {
 
 export default async function Home() {
   const categories = await getCategories();
-  console.log(categories, "categories")
 
   return (
-    <div className="grid grid-cols-12 gap-6">
+    <div className="grid grid-cols-12 gap-7">
       <div className="col-span-3">
-        <h2 className="font-semibold text-2xl text-gray-700 mb-9">All Caterogy</h2>
-
-        <ul className="flex flex-col gap-3">
-          {
-            categories.news_category.map((category) => {
-              return <li key={category.category_id} className="font-medium text-xl text-gray-600 py-3 px-14 bg-gray-300">{category.category_name}</li>
-            })
-          }
-        </ul>
+        <LeftSideBar categories={categories}/>
       </div>
 
       <div className="bg-blue-500 col-span-6">

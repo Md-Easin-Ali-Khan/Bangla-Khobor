@@ -5,7 +5,7 @@ import NavLink from "./NavLink";
 
 const NavBar = () => {
     return (
-        <div className="flex items-center justify-between mt-8">
+        <div className="flex items-center justify-between mt-8 mb-10">
 
             <div></div>
             <ul className="flex gap-5 font-normal text-lg text-gray-500">
