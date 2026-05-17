@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <div className="grid grid-cols-12 gap-7">
       <div className="col-span-3">
-        <LeftSideBar categories={categories}/>
+        <LeftSideBar categories={categories} activeId={"06"}/>
       </div>
 
       <div className="bg-blue-500 col-span-6">
