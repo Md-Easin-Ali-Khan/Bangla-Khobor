@@ -5,7 +5,7 @@ import { FiShare2 } from 'react-icons/fi';
 import { IoEye } from 'react-icons/io5';
 
 const NewsCard = ({ news }) => {
-    console.log(news.author.name)
+    console.log()
 
     return (
         <div className="card bg-base-100 w-full shadow-sm">
@@ -16,13 +16,13 @@ const NewsCard = ({ news }) => {
                         <div className='flex gap-4 items-center'>
                             <Image
                                 src={news.author?.img}
-                                alt={news.author?.name || "News thumbnail"}
+                                alt={news.author || "News thumbnail"}
                                 width={40}
                                 height={40}
                                 className='rounded-full'
                             />
                             <div>
-                                <h3 className='font-semibold text-[16px] text-gray-500'>{news.author?.name}</h3>
+                                <h3 className='font-semibold text-[16px] text-gray-500'>{ news.author.name}</h3>
                                 <p className='text-sm'>{news.author?.published_date}</p>
                             </div>
                         </div>
@@ -39,11 +39,11 @@ const NewsCard = ({ news }) => {
                             <Image
                                 src={news.thumbnail_url}
                                 fill
-                                alt={news.author.name || "News thumbnail"}
+                                alt={news.author || "News thumbnail"}
                                 className="object-cover object-top rounded-2xl"
                             />
                         </figure>
-                        <p className='font-normal text-lg text-gray-500 line-clamp-2'>{news.details}</p>
+                        <p className='font-normal text-lg text-gray-500 line-clamp-2 mt-4'>{news.details}</p>
                         <Link href={`/news/${news._id}`} className='flex justify-center my-4'>
                             <button className='btn bg-gray-400 text-gray-700 text-lg'>See Details</button>
                         </Link>

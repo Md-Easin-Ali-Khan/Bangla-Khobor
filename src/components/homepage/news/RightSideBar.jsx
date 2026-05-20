@@ -75,7 +75,7 @@ const RightSideBar = () => {
                             src={image4}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             alt='group'
-                            className="rounded-xl object-cover p-6"
+                            className="rounded-xl object-cover p-6 mx-auto"
                         />
                     </div>
 
