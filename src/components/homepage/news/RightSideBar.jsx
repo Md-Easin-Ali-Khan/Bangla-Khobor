@@ -10,7 +10,7 @@ const RightSideBar = () => {
     return (
         <div>
             <div>
-                <h2 className='font-semibold text-xl text-gray-600 mb-7'>Login With</h2>
+                <h2 className='font-semibold text-xl text-gray-700 mb-5'>Login With</h2>
                 <div className='flex flex-col gap-4'>
                     <button className='btn border-blue-600 text-blue-600'><FaGoogle />Login with Google</button>
 

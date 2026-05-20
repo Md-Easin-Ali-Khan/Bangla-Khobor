@@ -1,13 +1,11 @@
-import { getDetalsById } from "@/lib/data";
-import Image from "next/image";
-import Link from "next/link";
-import { FaRegBookmark, FaStar } from "react-icons/fa";
-import { FiShare2 } from "react-icons/fi";
-import { IoEye } from "react-icons/io5";
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaRegBookmark, FaStar } from 'react-icons/fa';
+import { FiShare2 } from 'react-icons/fi';
+import { IoEye } from 'react-icons/io5';
 
-const NewsDetailsPage = async ({ params }) => {
-    const { id } = await params
-    const news = await getDetalsById(id)
+const NewsCard = ({ news }) => {
+    console.log(news.author.name)
 
     return (
         <div className="card bg-base-100 w-full shadow-sm">
@@ -77,4 +75,4 @@ const NewsDetailsPage = async ({ params }) => {
     );
 };
 
-export default NewsDetailsPage;
+export default NewsCard;
