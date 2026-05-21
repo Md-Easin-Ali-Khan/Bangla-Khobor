@@ -1,11 +1,11 @@
-import React from 'react';
 
 const RegisterPage = () => {
     return (
-        <div>
-            <h1>Register Page</h1>
+        <div className="max-w-lg min-h-[80vh] mx-auto flex justify-center items-center">
+            
         </div>
     );
 };
+
 
 export default RegisterPage;
