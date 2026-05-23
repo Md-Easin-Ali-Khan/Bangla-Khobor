@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-const LoginPag = () => {
+const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
 
     const handleLogin = (e) => {
@@ -31,4 +31,4 @@ const LoginPag = () => {
     );
 };
 
-export default LoginPag;
+export default LoginPage;
