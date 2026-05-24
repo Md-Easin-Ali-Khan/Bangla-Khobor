@@ -1,21 +1,21 @@
 "use client"
 import { authClient } from "@/lib/auth-client";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 const RegisterPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
-    const handleRegister = async(data) => {
+    const handleRegister = async (data) => {
         const { email, password, name, photo } = data;
 
-        const { } = await authClient.signUp.email({
-            name: "John Doe", // required
-            email: "john.doe@example.com", // required
-            password: "password1234", // required
-            image: "https://example.com/image.png",
-            callbackURL: "https://example.com/callback",
+        const { data: res, error } = await authClient.signUp.email({
+            name: name,
+            email: email,
+            password: password,
+            image: photo,
+            callbackURL: "/",
         });
+        console.log(res, error)
     }
     return (
         <div className="max-w-lg min-h-[80vh] mx-auto flex justify-center items-center">
@@ -43,7 +43,7 @@ const RegisterPage = () => {
                     </fieldset>
 
                     <fieldset className="fieldset">
-                        <legend className="fieldset-legend font-semibold text-xl text-gray-500 mb-4">Email address</legend>
+                        <legend className="fieldset-legend font-semibold text-xl text-gray-500 mb-4">Password</legend>
                         <input type="password" {...register("password", { required: "This field is required" })} className="input py-5 pl-5 w-full" placeholder="Enter your password address" />
                         {errors.password && <p className="font-bold text-red-400">{errors.password.message}</p>}
                     </fieldset>
