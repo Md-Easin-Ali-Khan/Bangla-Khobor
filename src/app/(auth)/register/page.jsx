@@ -1,9 +1,14 @@
 "use client"
 import { authClient } from "@/lib/auth-client";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FiEye } from "react-icons/fi";
+import { PiEyeSlashDuotone } from "react-icons/pi";
 const RegisterPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
+
+    const [isShowPassword, setIsShowPassword] = useState(false)
 
     const handleRegister = async (data) => {
         const { email, password, name, photo } = data;
@@ -16,6 +21,13 @@ const RegisterPage = () => {
             callbackURL: "/",
         });
         console.log(res, error)
+
+        if (error) {
+            alert(error.message)
+        }
+        if (res) {
+            alert("Sign up successfully")
+        }
     }
     return (
         <div className="max-w-lg min-h-[80vh] mx-auto flex justify-center items-center">
@@ -42,9 +54,13 @@ const RegisterPage = () => {
                         {errors.email && <p className="font-bold text-red-400">{errors.email.message}</p>}
                     </fieldset>
 
-                    <fieldset className="fieldset">
+                    <fieldset className="fieldset relative">
                         <legend className="fieldset-legend font-semibold text-xl text-gray-500 mb-4">Password</legend>
-                        <input type="password" {...register("password", { required: "This field is required" })} className="input py-5 pl-5 w-full" placeholder="Enter your password address" />
+                        <input type={isShowPassword ? "text" : "password"} {...register("password", { required: "This field is required" })} className="input py-5 pl-5 w-full" placeholder="Enter your password address" />
+                        
+                        <span onClick={() => setIsShowPassword(!isShowPassword)} className="absolute right-2 top-5">{isShowPassword ? <FiEye /> : <PiEyeSlashDuotone />
+                        }</span>
+
                         {errors.password && <p className="font-bold text-red-400">{errors.password.message}</p>}
                     </fieldset>
 
