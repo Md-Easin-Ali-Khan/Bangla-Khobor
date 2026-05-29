@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import image1 from '@/assets/swimming.png';
 import image2 from '@/assets/class.png';
@@ -5,16 +6,32 @@ import image3 from '@/assets/playground.png';
 import image4 from '@/assets/group.png'
 import React from 'react';
 import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { authClient } from '@/lib/auth-client';
 
 const RightSideBar = () => {
+    const handleGoogleSignin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+
+        console.log(data, "data")
+    }
+
+    const handleGitHubSignin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "github",
+        });
+
+        console.log(data, "data")
+    }
     return (
         <div>
             <div>
                 <h2 className='font-semibold text-xl text-gray-700 mb-5'>Login With</h2>
                 <div className='flex flex-col gap-4'>
-                    <button className='btn border-blue-600 text-blue-600'><FaGoogle />Login with Google</button>
+                    <button className='btn border-blue-600 text-blue-600' onClick={handleGoogleSignin}><FaGoogle />Login with Google</button>
 
-                    <button className='btn border-black '><FaGithub />Login with GitHub</button>
+                    <button className='btn border-black ' onClick={handleGitHubSignin}><FaGithub />Login with GitHub</button>
                 </div>
             </div>
 
